@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Now Playing View Controller-->
+        <!--FlixMovies-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="NowPlayingViewController" customModule="FlixMovies" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,8 +19,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8oV-s2-csr">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="339" id="9c7-JV-r4H" customClass="MovieCell" customModule="FlixMovies" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="339"/>
@@ -30,16 +30,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2tZ-gt-Jr3">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="338.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="338.5"/>
                                                 </imageView>
                                                 <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MLz-1e-Meu">
-                                                    <rect key="frame" x="0.0" y="210" width="375" height="128.5"/>
+                                                    <rect key="frame" x="0.0" y="210" width="414" height="128.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mc0-lk-bOM">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="128.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="128.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ant man and the wasp " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPD-l8-ffI">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="288" height="128.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="327" height="128.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="260" id="5SE-ne-onU"/>
                                                                     </constraints>
@@ -48,7 +48,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⭐️⭐️⭐️⭐️⭐️" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MvN-aU-unx">
-                                                                    <rect key="frame" x="288" y="0.0" width="87" height="128.5"/>
+                                                                    <rect key="frame" x="327" y="0.0" width="87" height="128.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="87" id="imZ-P4-WsH"/>
                                                                     </constraints>
@@ -95,19 +95,19 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="8oV-s2-csr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="OZM-74-DhZ"/>
-                            <constraint firstItem="8oV-s2-csr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="RXl-bx-g4e"/>
-                            <constraint firstItem="8oV-s2-csr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Zun-0V-oXR"/>
-                            <constraint firstItem="8oV-s2-csr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="aqF-gv-5LX"/>
+                            <constraint firstItem="8oV-s2-csr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0km-rR-7BF"/>
+                            <constraint firstItem="8oV-s2-csr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8FU-sx-Ygn"/>
+                            <constraint firstItem="8oV-s2-csr" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="9Gr-PK-KPw"/>
+                            <constraint firstItem="8oV-s2-csr" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="EOg-kd-bS9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9Fh-vH-NV4"/>
+                    <navigationItem key="navigationItem" title="FlixMovies" id="9Fh-vH-NV4"/>
                     <connections>
                         <outlet property="nowPlayingTableView" destination="8oV-s2-csr" id="0Ng-fU-bI3"/>
-                        <segue destination="JDn-3F-Dmu" kind="show" id="O3E-XT-kRP"/>
+                        <segue destination="JDn-3F-Dmu" kind="show" identifier="toDetailView" id="O3E-XT-kRP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -121,7 +121,32 @@
                     <view key="view" contentMode="scaleToFill" id="m8h-Dl-Rrz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GBI-lQ-WuZ">
+                                <rect key="frame" x="67" y="151" width="240" height="285"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZN-w3-ltB">
+                                <rect key="frame" x="52" y="462" width="269" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilr-2x-ZMl">
+                                <rect key="frame" x="52" y="502" width="283" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIo-HF-cKh">
+                                <rect key="frame" x="67" y="595" width="240" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="YZb-Pu-A2E"/>
                     </view>
                 </viewController>
@@ -134,9 +159,14 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rS4-Xu-5Ea" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QLF-fc-aSI">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="QLF-fc-aSI">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.25924016497461932" green="0.25924016497461932" blue="0.25924016497461932" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

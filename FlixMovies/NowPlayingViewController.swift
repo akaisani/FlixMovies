@@ -107,6 +107,7 @@ extension NowPlayingViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // selected a movie, move to detail view
+        self.performSegue(withIdentifier: "toDetailView", sender: self)
     }
 
 
