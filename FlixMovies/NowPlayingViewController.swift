@@ -78,6 +78,20 @@ class NowPlayingViewController: UIViewController {
         
         
     }
+    
+    
+    
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {return}
+        if identifier == "toDetailView" {
+            guard let destinationVC = segue.destination as? DetailViewController, let selectedMovieIndexPath = nowPlayingTableView.indexPathForSelectedRow else {return}
+            let movie = self.movies[selectedMovieIndexPath.row]
+            destinationVC.movie = movie
+        }
+    }
+    
 
 }
 
