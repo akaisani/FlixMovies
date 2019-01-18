@@ -165,7 +165,7 @@
                                                             <constraint firstAttribute="width" constant="283" id="Iv8-B5-dMJ"/>
                                                             <constraint firstAttribute="height" constant="68" id="SEJ-Uz-zQg"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -175,7 +175,15 @@
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="74" id="OU5-kA-m0D"/>
                                                             <constraint firstAttribute="height" constant="39" id="oPx-Vu-Peh"/>
                                                         </constraints>
-                                                        <state key="normal" title="Read More"/>
+                                                        <state key="normal" title="Read More">
+                                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="c9a-bB-IQ1" kind="presentation" identifier="toOverviewPopover" id="tuL-LW-Uba">
+                                                                <segue key="commit" inheritsFrom="parent" id="YkT-fw-akV"/>
+                                                                <segue key="preview" inheritsFrom="commit" id="94B-Ub-4me"/>
+                                                            </segue>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -222,6 +230,62 @@
             </objects>
             <point key="canvasLocation" x="1932" y="132.68365817091455"/>
         </scene>
+        <!--Overview Popover View Controller-->
+        <scene sceneID="0cA-KF-JRe">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="c9a-bB-IQ1" customClass="OverviewPopoverViewController" customModule="FlixMovies" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Xq-EQ-JLY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JbW-tS-Huk">
+                                <rect key="frame" x="67" y="130" width="241" height="462"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4w-fT-2CS">
+                                        <rect key="frame" x="0.0" y="0.0" width="241" height="462"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.86432470034246578" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="g4w-fT-2CS" secondAttribute="trailing" id="HCO-KY-8cb"/>
+                                    <constraint firstItem="g4w-fT-2CS" firstAttribute="top" secondItem="JbW-tS-Huk" secondAttribute="top" id="VY5-qR-FZm"/>
+                                    <constraint firstAttribute="bottom" secondItem="g4w-fT-2CS" secondAttribute="bottom" id="aWP-pp-S6b"/>
+                                    <constraint firstItem="g4w-fT-2CS" firstAttribute="leading" secondItem="JbW-tS-Huk" secondAttribute="leading" id="xMS-az-cgV"/>
+                                    <constraint firstAttribute="width" constant="241" id="zJF-0w-qgQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.6009738869863015" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="JbW-tS-Huk" firstAttribute="top" secondItem="iq9-2B-uF9" secondAttribute="top" constant="110" id="5TN-IC-wbw"/>
+                            <constraint firstItem="JbW-tS-Huk" firstAttribute="centerX" secondItem="8Xq-EQ-JLY" secondAttribute="centerX" id="Hem-f2-JUH"/>
+                            <constraint firstItem="iq9-2B-uF9" firstAttribute="bottom" secondItem="JbW-tS-Huk" secondAttribute="bottom" constant="75" id="x6p-Wb-zpT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iq9-2B-uF9"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Ol5-zf-aYA" appends="YES" id="SfH-Na-AaA"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="overviewPopupView" destination="JbW-tS-Huk" id="ygJ-6k-oA8"/>
+                        <outlet property="overviewTextView" destination="g4w-fT-2CS" id="Uvo-6a-ajE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UTf-kf-tHu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Ol5-zf-aYA">
+                    <connections>
+                        <action selector="exitPopupView:" destination="c9a-bB-IQ1" id="NoR-zg-aSM"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2880.8000000000002" y="163.26836581709148"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="oDh-b4-44M">
             <objects>
@@ -246,4 +310,7 @@
             <point key="canvasLocation" x="132" y="132.68365817091455"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="tuL-LW-Uba"/>
+    </inferredMetricsTieBreakers>
 </document>

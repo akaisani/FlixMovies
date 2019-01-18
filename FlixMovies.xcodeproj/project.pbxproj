@@ -15,6 +15,7 @@
 		A8B9511B21ED504B00BB61BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8B9511921ED504B00BB61BC /* LaunchScreen.storyboard */; };
 		A8B9512321ED580500BB61BC /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B9512221ED580500BB61BC /* Movie.swift */; };
 		A8C6A7C621F16810008EB343 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C6A7C521F16810008EB343 /* DetailViewController.swift */; };
+		A8C6A7C821F16F79008EB343 /* OverviewPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C6A7C721F16F79008EB343 /* OverviewPopoverViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A8B9511C21ED504B00BB61BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8B9512221ED580500BB61BC /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		A8C6A7C521F16810008EB343 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A8C6A7C721F16F79008EB343 /* OverviewPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewPopoverViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		A8B9510F21ED504A00BB61BC /* FlixMovies */ = {
 			isa = PBXGroup;
 			children = (
+				A8C6A7C721F16F79008EB343 /* OverviewPopoverViewController.swift */,
 				A8B9511021ED504A00BB61BC /* AppDelegate.swift */,
 				A8B9511221ED504A00BB61BC /* NowPlayingViewController.swift */,
 				A8C6A7C521F16810008EB343 /* DetailViewController.swift */,
@@ -147,6 +150,7 @@
 				A8B9511321ED504A00BB61BC /* NowPlayingViewController.swift in Sources */,
 				A8B9511121ED504A00BB61BC /* AppDelegate.swift in Sources */,
 				A8C6A7C621F16810008EB343 /* DetailViewController.swift in Sources */,
+				A8C6A7C821F16F79008EB343 /* OverviewPopoverViewController.swift in Sources */,
 				A883508D21EFBD0D00D0D240 /* MovieCell.swift in Sources */,
 				A8B9512321ED580500BB61BC /* Movie.swift in Sources */,
 			);
