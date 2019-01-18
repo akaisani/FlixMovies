@@ -194,12 +194,9 @@
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="bw5-P4-AkZ"/>
                                                     <constraint firstAttribute="height" constant="52" id="jVg-3y-ftE"/>
                                                 </constraints>
-                                                <state key="normal" title="Learn More!">
+                                                <state key="normal" title="More Information">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="learnMoreButtonPressed:" destination="JDn-3F-Dmu" eventType="touchUpInside" id="drI-df-gOm"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

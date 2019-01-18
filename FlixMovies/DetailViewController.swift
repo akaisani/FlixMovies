@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class DetailViewController: UIViewController {
 
@@ -32,6 +33,39 @@ class DetailViewController: UIViewController {
     }
     
 
+    @IBAction func learnMoreButtonPressed(_ sender: Any) {
+        guard let url = URL(string: "https://api.themoviedb.org/3/movie/\(movie.id)?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US") else {return}
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if error != nil {
+                AlertControllerHelper.presentAlert(for: self, withTitle: "Error", withMessage: "Error loading data\n" + error!.localizedDescription)
+                return
+            } else if let data = data {
+                do {
+                    guard let dataDictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {return}
+                    guard let homepageString = dataDictionary["homepage"] as? String, let homepageURL = URL(string: homepageString) else {
+                        AlertControllerHelper.presentAlert(for: self, withTitle: "Error", withMessage: "No homepage is available for this movie.")
+                        return
+                    }
+                    
+                    // creating safari view controller
+                    
+                    DispatchQueue.main.async {
+                        let safariVC = SFSafariViewController(url: homepageURL)
+                        safariVC.delegate = self
+                        safariVC.preferredBarTintColor = UIColor.darkGray
+                        self.present(safariVC, animated: true, completion: nil)
+                    }
+                    
+                } catch let error {
+                    AlertControllerHelper.presentAlert(for: self, withTitle: "Error", withMessage: "Error loading data\n" + error.localizedDescription)
+                    return
+                }
+            }
+        }
+        task.resume()
+    }
     
     // MARK: - Navigation
 
@@ -50,4 +84,11 @@ class DetailViewController: UIViewController {
     }
  
 
+}
+
+
+extension DetailViewController: SFSafariViewControllerDelegate {
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
 }

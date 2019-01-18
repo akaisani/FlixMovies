@@ -9,6 +9,7 @@
 import UIKit
 
 class Movie {
+    let id: String
     let title: String
     let overview: String
     let posterURL: String
@@ -18,7 +19,8 @@ class Movie {
     let ratings = ["😭"," ⭐️", "⭐️⭐️", "⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️⭐️"]
     
     
-    init(title: String, overview: String, posterURL: String, ratingScore: Double) {
+    init(id: String, title: String, overview: String, posterURL: String, ratingScore: Double) {
+        self.id = id
         self.title = title
         self.overview = overview
         self.posterURL = posterURL

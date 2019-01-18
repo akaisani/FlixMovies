@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A883508D21EFBD0D00D0D240 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A883508C21EFBD0D00D0D240 /* MovieCell.swift */; };
+		A8ADAF9321F183E100837CFF /* AlertControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADAF9221F183E100837CFF /* AlertControllerHelper.swift */; };
 		A8B9511121ED504A00BB61BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B9511021ED504A00BB61BC /* AppDelegate.swift */; };
 		A8B9511321ED504A00BB61BC /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B9511221ED504A00BB61BC /* NowPlayingViewController.swift */; };
 		A8B9511621ED504A00BB61BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8B9511421ED504A00BB61BC /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		A883508C21EFBD0D00D0D240 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MovieCell.swift; path = Views/MovieCell.swift; sourceTree = "<group>"; };
+		A8ADAF9221F183E100837CFF /* AlertControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerHelper.swift; sourceTree = "<group>"; };
 		A8B9510D21ED504A00BB61BC /* FlixMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlixMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8B9511021ED504A00BB61BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8B9511221ED504A00BB61BC /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				A8B9511021ED504A00BB61BC /* AppDelegate.swift */,
 				A8B9511221ED504A00BB61BC /* NowPlayingViewController.swift */,
 				A8C6A7C521F16810008EB343 /* DetailViewController.swift */,
+				A8ADAF9221F183E100837CFF /* AlertControllerHelper.swift */,
 				A8B9511421ED504A00BB61BC /* Main.storyboard */,
 				A883508C21EFBD0D00D0D240 /* MovieCell.swift */,
 				A8B9512221ED580500BB61BC /* Movie.swift */,
@@ -149,6 +152,7 @@
 			files = (
 				A8B9511321ED504A00BB61BC /* NowPlayingViewController.swift in Sources */,
 				A8B9511121ED504A00BB61BC /* AppDelegate.swift in Sources */,
+				A8ADAF9321F183E100837CFF /* AlertControllerHelper.swift in Sources */,
 				A8C6A7C621F16810008EB343 /* DetailViewController.swift in Sources */,
 				A8C6A7C821F16F79008EB343 /* OverviewPopoverViewController.swift in Sources */,
 				A883508D21EFBD0D00D0D240 /* MovieCell.swift in Sources */,

@@ -22,8 +22,9 @@ class NowPlayingViewController: UIViewController {
             self.movies.removeAll()
             let posterBaseURL = "https://image.tmdb.org/t/p/w780"
             for movieDictionary in dataDictionaries {
-                guard let title = movieDictionary["title"] as? String, let overview = movieDictionary["overview"] as? String, let posterURL = movieDictionary["poster_path"] as? String, let ratingScore = movieDictionary["vote_average"] as? Double else {continue}
-                let movie = Movie(title: title, overview: overview, posterURL: posterBaseURL + posterURL, ratingScore: ratingScore)
+                guard let title = movieDictionary["title"] as? String, let overview = movieDictionary["overview"] as? String, let posterURL = movieDictionary["poster_path"] as? String, let ratingScore = movieDictionary["vote_average"] as? Double, let id = (movieDictionary["id"] as? Int) else {continue}
+                let idString = String(id)
+                let movie = Movie(id: idString, title: title, overview: overview, posterURL: posterBaseURL + posterURL, ratingScore: ratingScore)
                 self.movies.append(movie)
             }
             
@@ -48,10 +49,7 @@ class NowPlayingViewController: UIViewController {
         let task = session.dataTask(with: urlRequest) { (data, response, error) in
             guard error == nil else {
                 
-                let alertController = UIAlertController(title: "Error", message: "Error loading data\n" + error!.localizedDescription, preferredStyle: .alert)
-                let dismissAction = UIAlertAction(title: "Dissmiss", style: .default, handler: nil)
-                alertController.addAction(dismissAction)
-                self.present(alertController, animated: true, completion: nil)
+                AlertControllerHelper.presentAlert(for: self, withTitle: "Error", withMessage: "Error loading data\n" + error!.localizedDescription)
                 return
             }
             
@@ -65,10 +63,7 @@ class NowPlayingViewController: UIViewController {
                 
                 
             } catch let error {
-                let alertController = UIAlertController(title: "Error", message: "Error loading data\n" + error.localizedDescription, preferredStyle: .alert)
-                let dismissAction = UIAlertAction(title: "Dissmiss", style: .default, handler: nil)
-                alertController.addAction(dismissAction)
-                self.present(alertController, animated: true, completion: nil)
+                AlertControllerHelper.presentAlert(for: self, withTitle: "Error", withMessage: "Error loading data\n" + error.localizedDescription)
                 return
             }
             
