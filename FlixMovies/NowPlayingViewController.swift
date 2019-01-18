@@ -11,12 +11,18 @@ import UIKit
 class NowPlayingViewController: UIViewController {
     
     var movies: [Movie] = []
-
+    var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var nowPlayingTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        startSpinner()
+        self.extendedLayoutIncludesOpaqueBars = true
+        fetchMovies()
+    }
+    
+    @objc func fetchMovies() {
         getMovieData {
             (dataDictionaries) in
             self.movies.removeAll()
@@ -37,6 +43,7 @@ class NowPlayingViewController: UIViewController {
             }
             dispatchGroup.notify(queue: .main) {
                 // reload table view
+                self.stopSpinner()
                 self.nowPlayingTableView.reloadData()
             }
         }
@@ -72,6 +79,22 @@ class NowPlayingViewController: UIViewController {
         task.resume()
         
         
+    }
+    
+    func startSpinner() {
+        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
+        activityIndicator.style = UIActivityIndicatorView.Style.whiteLarge
+        activityIndicator.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        activityIndicator.hidesWhenStopped = true
+        self.view.addSubview(activityIndicator)
+        activityIndicator.center = self.view.center
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+    }
+    
+    func stopSpinner() {
+        activityIndicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
     }
     
     
