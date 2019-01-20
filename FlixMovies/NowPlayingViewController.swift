@@ -19,12 +19,18 @@ class NowPlayingViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         startSpinner()
         self.extendedLayoutIncludesOpaqueBars = true
-        fetchMovies()
+        self.fetchMovies()
     }
     
-    @objc func fetchMovies() {
-        getMovieData {
-            (dataDictionaries) in
+    // MARK: - Helpers
+    func fetchMovies() {
+        TMDBHelper.getMovieData {
+            (dataDictionaries, errorMessage) in
+            guard let dataDictionaries = dataDictionaries else {
+                self.stopSpinner()
+                AlertControllerHelper.presentAlert(for: self, withTitle: "Error", withMessage: errorMessage!)
+                return
+            }
             self.movies.removeAll()
             let posterBaseURL = "https://image.tmdb.org/t/p/w780"
             for movieDictionary in dataDictionaries {
@@ -49,38 +55,8 @@ class NowPlayingViewController: UIViewController {
         }
     }
     
-    func getMovieData(_ completion: @escaping ([[String: Any]]) -> Void) {
-        guard let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed") else {return}
-        let urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        let task = session.dataTask(with: urlRequest) { (data, response, error) in
-            guard error == nil else {
-                
-                AlertControllerHelper.presentAlert(for: self, withTitle: "Error", withMessage: "Error loading data\n" + error!.localizedDescription)
-                return
-            }
-            
-            guard let data = data else {return}
-            
-            do {
-                guard let dataDictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {return}
-                let results = dataDictionary["results"] as! [[String: Any]]
-                completion(results)
-                
-                
-                
-            } catch let error {
-                AlertControllerHelper.presentAlert(for: self, withTitle: "Error", withMessage: "Error loading data\n" + error.localizedDescription)
-                return
-            }
-            
-        }
-        
-        task.resume()
-        
-        
-    }
     
+    // MARK: - UIActivityIndicator Setup
     func startSpinner() {
         activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
         activityIndicator.style = UIActivityIndicatorView.Style.whiteLarge
@@ -97,8 +73,6 @@ class NowPlayingViewController: UIViewController {
         UIApplication.shared.endIgnoringInteractionEvents()
     }
     
-    
-    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -109,10 +83,9 @@ class NowPlayingViewController: UIViewController {
             destinationVC.movie = movie
         }
     }
-    
-
 }
 
+// MARK: - UITableView Setup
 extension NowPlayingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as! MovieCell
@@ -127,9 +100,6 @@ extension NowPlayingViewController: UITableViewDataSource {
         return self.movies.count
     }
     
-    
-
-    
 }
 
 extension NowPlayingViewController: UITableViewDelegate {
@@ -141,6 +111,4 @@ extension NowPlayingViewController: UITableViewDelegate {
         // selected a movie, move to detail view
         self.performSegue(withIdentifier: "toDetailView", sender: self)
     }
-
-
 }
