@@ -34,9 +34,9 @@ class NowPlayingViewController: UIViewController {
             self.movies.removeAll()
             let posterBaseURL = "https://image.tmdb.org/t/p/w780"
             for movieDictionary in dataDictionaries {
-                guard let title = movieDictionary["title"] as? String, let overview = movieDictionary["overview"] as? String, let posterURL = movieDictionary["poster_path"] as? String, let ratingScore = movieDictionary["vote_average"] as? Double, let id = (movieDictionary["id"] as? Int) else {continue}
+                guard let title = movieDictionary["title"] as? String, let overview = movieDictionary["overview"] as? String, let posterURL = movieDictionary["poster_path"] as? String, let backdropURL = movieDictionary["backdrop_path"] as? String, let ratingScore = movieDictionary["vote_average"] as? Double, let id = (movieDictionary["id"] as? Int) else {continue}
                 let idString = String(id)
-                let movie = Movie(id: idString, title: title, overview: overview, posterURL: posterBaseURL + posterURL, ratingScore: ratingScore)
+                let movie = Movie(id: idString, title: title, overview: overview, posterURL: posterBaseURL + posterURL, backdropURL: posterBaseURL + backdropURL, ratingScore: ratingScore)
                 self.movies.append(movie)
             }
             

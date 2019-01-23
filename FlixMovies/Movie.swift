@@ -13,18 +13,20 @@ class Movie {
     let title: String
     let overview: String
     let posterURL: String
+    let backdropURL: String
     private var savedPosterImage: UIImage?
     private var ratingScore: Double
     
     let ratings = ["😭"," ⭐️", "⭐️⭐️", "⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️⭐️"]
     
     
-    init(id: String, title: String, overview: String, posterURL: String, ratingScore: Double) {
+    init(id: String, title: String, overview: String, posterURL: String, backdropURL: String, ratingScore: Double) {
         self.id = id
         self.title = title
         self.overview = overview
         self.posterURL = posterURL
         self.ratingScore = ratingScore
+        self.backdropURL = backdropURL
     }
     
     var posterImage: UIImage? {
