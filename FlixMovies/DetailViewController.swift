@@ -18,16 +18,18 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var moreInfoButton: UIButton!
-    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var backdropImageView: UIImageView!
     
+    @IBOutlet weak var backgroundImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.navigationItem.title = movie.title
         self.movieTitleLabel.text = movie.title
-        self.backgroundImageView.image = movie.backdropImage
+        self.backdropImageView.image = movie.backdropImage
         self.posterImageView.image = movie.posterImage
+        self.backgroundImageView.image = movie.posterImage
         self.ratingLabel.text = movie.rating
         self.overviewLabel.text = movie.overview
         self.moreInfoButton.layer.borderColor = UIColor.white.cgColor
