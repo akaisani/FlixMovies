@@ -18,6 +18,7 @@
 		A8B9512321ED580500BB61BC /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B9512221ED580500BB61BC /* Movie.swift */; };
 		A8C6A7C621F16810008EB343 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C6A7C521F16810008EB343 /* DetailViewController.swift */; };
 		A8C6A7C821F16F79008EB343 /* OverviewPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C6A7C721F16F79008EB343 /* OverviewPopoverViewController.swift */; };
+		A8F4DD1121F92D1E00403E51 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8F4DD0F21F92D1E00403E51 /* DetailView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		A8B9512221ED580500BB61BC /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		A8C6A7C521F16810008EB343 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A8C6A7C721F16F79008EB343 /* OverviewPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewPopoverViewController.swift; sourceTree = "<group>"; };
+		A8F4DD1021F92D1E00403E51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlixMovies/Base.lproj/DetailView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				A838A19521F41C5B005432D5 /* TMDBHelper.swift */,
 				A8C6A7C521F16810008EB343 /* DetailViewController.swift */,
 				A8ADAF9221F183E100837CFF /* AlertControllerHelper.swift */,
+				A8F4DD0F21F92D1E00403E51 /* DetailView.storyboard */,
 				A8B9511421ED504A00BB61BC /* Main.storyboard */,
 				A883508C21EFBD0D00D0D240 /* MovieCell.swift */,
 				A8B9512221ED580500BB61BC /* Movie.swift */,
@@ -142,6 +145,7 @@
 			files = (
 				A8B9511B21ED504B00BB61BC /* LaunchScreen.storyboard in Resources */,
 				A8B9511821ED504B00BB61BC /* Assets.xcassets in Resources */,
+				A8F4DD1121F92D1E00403E51 /* DetailView.storyboard in Resources */,
 				A8B9511621ED504A00BB61BC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,6 +185,14 @@
 				A8B9511A21ED504B00BB61BC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A8F4DD0F21F92D1E00403E51 /* DetailView.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A8F4DD1021F92D1E00403E51 /* Base */,
+			);
+			name = DetailView.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
