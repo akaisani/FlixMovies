@@ -15,6 +15,7 @@ class Movie {
     let posterURL: String
     let backdropURL: String
     private var savedPosterImage: UIImage?
+    private var savedBackdropImage: UIImage?
     private var ratingScore: Double
     
     let ratings = ["😭"," ⭐️", "⭐️⭐️", "⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️⭐️"]
@@ -37,6 +38,18 @@ class Movie {
             let data = try! Data(contentsOf: url)
             let image = UIImage(data: data)
             savedPosterImage = image
+            return image
+        }
+    }
+    
+    var backdropImage: UIImage? {
+        if let downloadedImage = savedBackdropImage {
+            return downloadedImage
+        } else {
+            guard let url = URL(string: backdropURL) else {return nil}
+            let data = try! Data(contentsOf: url)
+            let image = UIImage(data: data)
+            savedBackdropImage = image
             return image
         }
     }

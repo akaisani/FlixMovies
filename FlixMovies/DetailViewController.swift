@@ -13,6 +13,7 @@ class DetailViewController: UIViewController {
 
     var movie: Movie!
     
+    @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
@@ -24,13 +25,23 @@ class DetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.navigationItem.title = movie.title
-        self.backgroundImageView.image = movie.posterImage
+        self.movieTitleLabel.text = movie.title
+        self.backgroundImageView.image = movie.backdropImage
         self.posterImageView.image = movie.posterImage
         self.ratingLabel.text = movie.rating
         self.overviewLabel.text = movie.overview
         self.moreInfoButton.layer.borderColor = UIColor.white.cgColor
         self.moreInfoButton.layer.borderWidth = 2.0
         self.moreInfoButton.layer.cornerRadius = 25
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        self.navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
 
