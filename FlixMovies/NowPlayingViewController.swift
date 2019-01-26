@@ -24,36 +24,17 @@ class NowPlayingViewController: UIViewController {
     
     // MARK: - Helpers
     func fetchMovies() {
-        TMDBHelper.getMovieData {
-            (dataDictionaries, errorMessage) in
-            guard let dataDictionaries = dataDictionaries else {
-                self.stopSpinner()
-                AlertControllerHelper.presentAlert(for: self, withTitle: "Error", withMessage: errorMessage!)
-                return
-            }
-            self.movies.removeAll()
-            let posterBaseURL = "https://image.tmdb.org/t/p/w780"
-            for movieDictionary in dataDictionaries {
-                guard let title = movieDictionary["title"] as? String, let overview = movieDictionary["overview"] as? String, let posterURL = movieDictionary["poster_path"] as? String, let backdropURL = movieDictionary["backdrop_path"] as? String, let ratingScore = movieDictionary["vote_average"] as? Double, let id = (movieDictionary["id"] as? Int) else {continue}
-                let idString = String(id)
-                let movie = Movie(id: idString, title: title, overview: overview, posterURL: posterBaseURL + posterURL, backdropURL: posterBaseURL + backdropURL, ratingScore: ratingScore)
-                self.movies.append(movie)
-            }
-            
-            let dispatchGroup = DispatchGroup()
-            
-            for movie in self.movies {
-                dispatchGroup.enter()
-                _ = movie.posterImage
-                dispatchGroup.leave()
-            }
-            dispatchGroup.notify(queue: .main) {
+        let urlString = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"
+        TMDBHelper.fetchMovies(for: self, from: urlString) { (movies) in
+            self.movies = movies
+            DispatchQueue.main.async {
                 // reload table view
                 self.stopSpinner()
                 self.nowPlayingTableView.reloadData()
             }
         }
     }
+    
     
     
     // MARK: - UIActivityIndicator Setup
@@ -74,7 +55,7 @@ class NowPlayingViewController: UIViewController {
     }
     
     // MARK: - Navigation
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else {return}
         if identifier == "toDetailView" {

@@ -18,11 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Asc-SI-IeK">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Asc-SI-IeK">
                                 <rect key="frame" x="0.0" y="269" width="375" height="398"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="398" id="CFn-rN-XgS"/>
-                                    <constraint firstAttribute="width" constant="375" id="ImQ-y6-NSn"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Emq-iJ-vNm">
@@ -143,6 +142,7 @@
                             <constraint firstItem="Emq-iJ-vNm" firstAttribute="top" secondItem="YZb-Pu-A2E" secondAttribute="top" id="Fqn-Mq-zZh"/>
                             <constraint firstItem="oB0-CT-zhO" firstAttribute="bottom" secondItem="YZb-Pu-A2E" secondAttribute="bottom" id="V0Y-Hc-4ao"/>
                             <constraint firstItem="Asc-SI-IeK" firstAttribute="bottom" secondItem="YZb-Pu-A2E" secondAttribute="bottom" id="XRi-aH-4x0"/>
+                            <constraint firstItem="Asc-SI-IeK" firstAttribute="width" secondItem="m8h-Dl-Rrz" secondAttribute="width" id="XVL-c8-fiu"/>
                             <constraint firstItem="Emq-iJ-vNm" firstAttribute="trailing" secondItem="YZb-Pu-A2E" secondAttribute="trailing" id="aMr-t2-bgJ"/>
                             <constraint firstItem="oB0-CT-zhO" firstAttribute="leading" secondItem="YZb-Pu-A2E" secondAttribute="leading" id="kdI-Ql-PXC"/>
                             <constraint firstItem="oB0-CT-zhO" firstAttribute="trailing" secondItem="YZb-Pu-A2E" secondAttribute="trailing" id="rY3-bE-G0N"/>
