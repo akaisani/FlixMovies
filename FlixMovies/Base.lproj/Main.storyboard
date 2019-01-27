@@ -22,6 +22,10 @@
                         <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
+                    <connections>
+                        <segue destination="9Iu-to-IMW" kind="relationship" relationship="viewControllers" id="jCE-pa-1iU"/>
+                        <segue destination="Chq-3L-EUe" kind="relationship" relationship="viewControllers" id="xBg-NB-rnM"/>
+                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hxW-71-eXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -31,7 +35,7 @@
         <scene sceneID="ysM-PV-nE0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Chq-3L-EUe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Superhero" id="rRV-Yi-fF5"/>
+                    <tabBarItem key="tabBarItem" title="Superhero" image="superhero_tabbar_item" id="RUB-5o-jkX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="cd7-zp-VRI">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
@@ -237,7 +241,7 @@
         <scene sceneID="fGe-9t-xJ6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Iu-to-IMW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Now Playing" id="q0Q-3Q-NXb"/>
+                    <tabBarItem key="tabBarItem" title="Now Playing" image="now_playing_tabbar_item" id="q0Q-3Q-NXb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="beR-MP-cux">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
@@ -266,4 +270,8 @@
             <point key="canvasLocation" x="614" y="1352"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="now_playing_tabbar_item" width="21" height="21"/>
+        <image name="superhero_tabbar_item" width="21" height="23"/>
+    </resources>
 </document>
