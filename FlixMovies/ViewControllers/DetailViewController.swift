@@ -39,6 +39,12 @@ class DetailViewController: UIViewController {
         self.moreInfoButton.layer.borderColor = UIColor.white.cgColor
         self.moreInfoButton.layer.borderWidth = 2.0
         self.moreInfoButton.layer.cornerRadius = 25
+        
+        
+        let playImageView = UIImageView(frame: CGRect(x: self.posterImageView.bounds.width / 2 - 30, y: self.posterImageView.bounds.height / 2 - 30, width: 60, height: 60))
+        playImageView.image = UIImage(named: "playTrailer")
+        playImageView.contentMode = .scaleAspectFill
+        self.posterImageView.addSubview(playImageView)
     }
     
     
