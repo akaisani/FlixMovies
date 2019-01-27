@@ -27,46 +27,9 @@ class SuperheroViewController: UIViewController {
         layout.itemSize = CGSize(width: width - layout.minimumInteritemSpacing, height: width * 1.25 )
         
         // Do any additional setup after loading the view.
-//        self.fetchMovies()
     }
     
-    
-    // MARK: - UIActivityIndicator Setup
-    func startSpinner() {
-        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
-        activityIndicator.style = UIActivityIndicatorView.Style.whiteLarge
-        activityIndicator.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-        activityIndicator.hidesWhenStopped = true
-        self.view.addSubview(activityIndicator)
-        activityIndicator.center = self.view.center
-        activityIndicator.startAnimating()
-        UIApplication.shared.beginIgnoringInteractionEvents()
-    }
-    
-    func stopSpinner() {
-        activityIndicator.stopAnimating()
-        UIApplication.shared.endIgnoringInteractionEvents()
-    }
-    
-    
-    // MARK: - Helpers
-//    func fetchMovies() {
-//        self.startSpinner()
-//        let urlString = "https://api.themoviedb.org/3/movie/324857/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=1"
-//        TMDBHelper.fetchMovies(for: self, from: urlString) { (movies) in
-//            self.movies = movies
-//            DispatchQueue.main.async {
-//                // reload table view
-//                self.stopSpinner()
-//                self.moviesCollectionView.reloadData()
-//            }
-//        }
-//    }
-    
-
-
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else {return}
@@ -96,10 +59,4 @@ extension SuperheroViewController: UICollectionViewDataSource {
         return cell
     }
     
-    
 }
-
-extension SuperheroViewController: UICollectionViewDelegate {
-
-}
-

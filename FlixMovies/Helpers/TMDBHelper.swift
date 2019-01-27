@@ -67,8 +67,6 @@ struct TMDBHelper {
         task.resume()
     }
     
-    
-    
     static func getSuperheroMovies(_ completion: @escaping ([[String: Any]]?, String?) -> Void) {
         guard let url = URL(string: "https://api.themoviedb.org/3/movie/324857/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=1") else {return}
         let urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -129,10 +127,7 @@ struct TMDBHelper {
             
             self.getMovieData(from: superheroURLString, { (superheroDataDictionaries, superheroErrorMessage) in
                 superheroMovies = self.reteriveMovieData(for: viewController, dataDictionaries: superheroDataDictionaries, error: superheroErrorMessage)
-                
-                
-                
-                
+
                 let nowplayingDispatchGroup = DispatchGroup()
                 
                 for movie in nowplayingMovies {

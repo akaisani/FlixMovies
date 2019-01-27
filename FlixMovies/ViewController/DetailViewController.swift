@@ -36,16 +36,6 @@ class DetailViewController: UIViewController {
         self.moreInfoButton.layer.borderWidth = 2.0
         self.moreInfoButton.layer.cornerRadius = 25
     }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-//        self.navigationController?.navigationBar.prefersLargeTitles = false
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
 
     @IBAction func learnMoreButtonPressed(_ sender: Any) {
         TMDBHelper.getMovieHomepage(for: movie.id) { (homepageURL, errorMessage) in
@@ -80,7 +70,6 @@ class DetailViewController: UIViewController {
     }
 
 }
-
 
 extension DetailViewController: SFSafariViewControllerDelegate {
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
