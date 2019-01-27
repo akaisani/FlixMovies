@@ -38,6 +38,7 @@
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GBI-lQ-WuZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="210"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="Rp5-8k-Jcy"/>
                                                     <constraint firstAttribute="height" constant="210" id="meL-mO-poo"/>
@@ -158,11 +159,46 @@
                         <outlet property="overviewLabel" destination="ilr-2x-ZMl" id="AoR-3h-W7I"/>
                         <outlet property="posterImageView" destination="GBI-lQ-WuZ" id="1cp-VP-PDs"/>
                         <outlet property="ratingLabel" destination="OZN-w3-ltB" id="ZN9-7X-CRC"/>
+                        <segue destination="SWA-vm-6AN" kind="show" identifier="toTrailerView" id="24X-e2-8Xk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AK0-Ze-atX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1932" y="132.68365817091455"/>
+        </scene>
+        <!--Trailer View Controller-->
+        <scene sceneID="Ylt-th-c6Q">
+            <objects>
+                <viewController id="SWA-vm-6AN" customClass="TrailerViewController" customModule="FlixMovies" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b0M-tp-3lp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPD-pr-qT7">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mPD-pr-qT7" firstAttribute="leading" secondItem="bb6-Ri-lGS" secondAttribute="leading" id="NEM-9H-LYz"/>
+                            <constraint firstItem="mPD-pr-qT7" firstAttribute="top" secondItem="bb6-Ri-lGS" secondAttribute="top" id="aHD-j5-GUu"/>
+                            <constraint firstItem="mPD-pr-qT7" firstAttribute="bottom" secondItem="bb6-Ri-lGS" secondAttribute="bottom" id="j9i-0j-3Q8"/>
+                            <constraint firstItem="mPD-pr-qT7" firstAttribute="trailing" secondItem="bb6-Ri-lGS" secondAttribute="trailing" id="zEw-ec-oha"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bb6-Ri-lGS"/>
+                    </view>
+                    <connections>
+                        <outlet property="trailerWebView" destination="mPD-pr-qT7" id="Pmo-Ao-JrK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tsN-v5-UvB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1932" y="871.21439280359823"/>
         </scene>
         <!--Overview Popover View Controller-->
         <scene sceneID="0cA-KF-JRe">

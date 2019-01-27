@@ -14,6 +14,7 @@ class Movie {
     let overview: String
     let posterURL: String
     let backdropURL: String
+    var trailerURL: String?
     private var savedPosterImage: UIImage?
     private var savedBackdropImage: UIImage?
     private var ratingScore: Double

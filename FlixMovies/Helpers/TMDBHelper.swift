@@ -28,6 +28,7 @@ struct TMDBHelper {
             do {
                 guard let dataDictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {return}
                 let results = dataDictionary["results"] as! [[String: Any]]
+                
                 completion(results, nil)
                 
             } catch let error {
@@ -127,7 +128,7 @@ struct TMDBHelper {
             
             self.getMovieData(from: superheroURLString, { (superheroDataDictionaries, superheroErrorMessage) in
                 superheroMovies = self.reteriveMovieData(for: viewController, dataDictionaries: superheroDataDictionaries, error: superheroErrorMessage)
-
+                
                 let nowplayingDispatchGroup = DispatchGroup()
                 
                 for movie in nowplayingMovies {
@@ -149,10 +150,62 @@ struct TMDBHelper {
                 }
                 
             })
+        }
+    }
+    
+    
+    private static func getMovieTrailerData(for movieID: String, _ completion: @escaping ([[String: Any]]?, String?) -> Void) {
+        let urlString = "https://api.themoviedb.org/3/movie/\(movieID)/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US"
+        guard let url = URL(string: urlString) else {return}
+        let urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let task = session.dataTask(with: urlRequest) { (data, response, error) in
+            guard error == nil else {
+                completion(nil, "Error loading data\n" + error!.localizedDescription)
+                return
+            }
             
+            guard let data = data else {
+                completion(nil, "Error loading data")
+                return
+            }
+            
+            do {
+                guard let dataDictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {return}
+                let results = dataDictionary["results"] as! [[String: Any]]
+                completion(results, nil)
+                
+            } catch let error {
+                completion(nil, "Error loading data\n" + error.localizedDescription)
+                return
+            }
             
         }
         
+        task.resume()
     }
+    
+    
+    static func reteriveTrailerData(for viewController: UIViewController, movieID id: String, _ completion: @escaping (String) -> Void) {
+        var trailerURL = ""
+        self.getMovieTrailerData(for: id) { (dataDictionaries, errorMessage) in
+            guard let dataDictionaries = dataDictionaries else {
+                AlertControllerHelper.presentAlert(for: viewController, withTitle: "Error", withMessage: errorMessage!)
+                completion(trailerURL)
+                return
+            }
+            let movieDictionary = dataDictionaries[0]
+            guard let key = movieDictionary["key"] as? String else {
+                AlertControllerHelper.presentAlert(for: viewController, withTitle: "Error", withMessage: "Trailer not found!")
+                completion(trailerURL)
+                return
+            }
+            trailerURL = "https://www.youtube.com/embed/\(key)?playsinline=1"
+            
+            completion(trailerURL)
+        }
+        
+    }
+    
     
 }

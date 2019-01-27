@@ -10,7 +10,7 @@ import UIKit
 import SafariServices
 
 class DetailViewController: UIViewController {
-
+    
     var movie: Movie!
     
     @IBOutlet weak var movieTitleLabel: UILabel!
@@ -23,7 +23,11 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        posterImageView.isUserInteractionEnabled = true
+        posterImageView.addGestureRecognizer(tapGestureRecognizer)
+        
         // Do any additional setup after loading the view.
         self.navigationItem.title = movie.title
         self.movieTitleLabel.text = movie.title
@@ -36,7 +40,19 @@ class DetailViewController: UIViewController {
         self.moreInfoButton.layer.borderWidth = 2.0
         self.moreInfoButton.layer.cornerRadius = 25
     }
-
+    
+    
+    
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
+        
+        TMDBHelper.reteriveTrailerData(for: self, movieID: movie.id) { (trailerURL) in
+            self.movie.trailerURL = trailerURL
+            self.performSegue(withIdentifier: "toTrailerView", sender: self)
+        }
+        
+        // Your action
+    }
     @IBAction func learnMoreButtonPressed(_ sender: Any) {
         TMDBHelper.getMovieHomepage(for: movie.id) { (homepageURL, errorMessage) in
             guard let homepageURL = homepageURL else  {
@@ -55,20 +71,27 @@ class DetailViewController: UIViewController {
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         guard let identifier  = segue.identifier else {return}
         
-        if identifier == "toOverviewPopover" {
+        
+        switch identifier {
+        case "toTrailerView":
+            guard let destinationVC = segue.destination as? TrailerViewController else {return}
+            destinationVC.urlString = movie.trailerURL
+        case "toOverviewPopover":
             guard let destinationVC = segue.destination as? OverviewPopoverViewController else {return}
             destinationVC.overviewText = movie.overview
+        default:
+            return
         }
         
     }
-
+    
 }
 
 extension DetailViewController: SFSafariViewControllerDelegate {
