@@ -76,8 +76,6 @@
 		A8B9510F21ED504A00BB61BC /* FlixMovies */ = {
 			isa = PBXGroup;
 			children = (
-				A8A187F921FE4ECB00CCA21E /* NowPlaying.storyboard */,
-				A8A187F721FE4E6800CCA21E /* Superhero.storyboard */,
 				A8F4DD1621F93B4800403E51 /* SuperheroViewController.swift */,
 				A8C6A7C721F16F79008EB343 /* OverviewPopoverViewController.swift */,
 				A8B9511021ED504A00BB61BC /* AppDelegate.swift */,
@@ -86,6 +84,8 @@
 				A8C6A7C521F16810008EB343 /* DetailViewController.swift */,
 				A8ADAF9221F183E100837CFF /* AlertControllerHelper.swift */,
 				A8F4DD0F21F92D1E00403E51 /* DetailView.storyboard */,
+				A8A187F921FE4ECB00CCA21E /* NowPlaying.storyboard */,
+				A8A187F721FE4E6800CCA21E /* Superhero.storyboard */,
 				A8B9511421ED504A00BB61BC /* Main.storyboard */,
 				A8F4DD1221F939D600403E51 /* MovieGridCell.swift */,
 				A883508C21EFBD0D00D0D240 /* MovieCell.swift */,

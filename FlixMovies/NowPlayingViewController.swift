@@ -24,9 +24,10 @@ class NowPlayingViewController: UIViewController {
     
     // MARK: - Helpers
     func fetchMovies() {
-        let urlString = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        TMDBHelper.fetchMovies(for: self, from: urlString) { (movies) in
-            self.movies = movies
+        TMDBHelper.fetchMovies(for: self) { (nowplayingMovies, superheroMovies) in
+            self.movies = nowplayingMovies
+            guard let tabbar = self.tabBarController, let superheroNavigationController = tabbar.viewControllers?[1] as? UINavigationController, let superheroViewController = superheroNavigationController.topViewController as? SuperheroViewController else {return}
+            superheroViewController.movies = superheroMovies
             DispatchQueue.main.async {
                 // reload table view
                 self.stopSpinner()

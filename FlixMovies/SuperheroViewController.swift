@@ -27,7 +27,7 @@ class SuperheroViewController: UIViewController {
         layout.itemSize = CGSize(width: width - layout.minimumInteritemSpacing, height: width * 1.25 )
         
         // Do any additional setup after loading the view.
-        self.fetchMovies()
+//        self.fetchMovies()
     }
     
     
@@ -50,18 +50,18 @@ class SuperheroViewController: UIViewController {
     
     
     // MARK: - Helpers
-    func fetchMovies() {
-        self.startSpinner()
-        let urlString = "https://api.themoviedb.org/3/movie/324857/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=1"
-        TMDBHelper.fetchMovies(for: self, from: urlString) { (movies) in
-            self.movies = movies
-            DispatchQueue.main.async {
-                // reload table view
-                self.stopSpinner()
-                self.moviesCollectionView.reloadData()
-            }
-        }
-    }
+//    func fetchMovies() {
+//        self.startSpinner()
+//        let urlString = "https://api.themoviedb.org/3/movie/324857/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=1"
+//        TMDBHelper.fetchMovies(for: self, from: urlString) { (movies) in
+//            self.movies = movies
+//            DispatchQueue.main.async {
+//                // reload table view
+//                self.stopSpinner()
+//                self.moviesCollectionView.reloadData()
+//            }
+//        }
+//    }
     
 
 
