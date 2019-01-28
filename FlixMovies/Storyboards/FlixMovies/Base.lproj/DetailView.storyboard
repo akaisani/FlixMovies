@@ -159,7 +159,7 @@
                         <outlet property="overviewLabel" destination="ilr-2x-ZMl" id="AoR-3h-W7I"/>
                         <outlet property="posterImageView" destination="GBI-lQ-WuZ" id="1cp-VP-PDs"/>
                         <outlet property="ratingLabel" destination="OZN-w3-ltB" id="ZN9-7X-CRC"/>
-                        <segue destination="SWA-vm-6AN" kind="show" identifier="toTrailerView" id="24X-e2-8Xk"/>
+                        <segue destination="SWA-vm-6AN" kind="presentation" identifier="toTrailerView" id="24X-e2-8Xk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AK0-Ze-atX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -175,20 +175,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPD-pr-qT7">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HL2-C1-QUq">
+                                <rect key="frame" x="0.0" y="20" width="375" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuB-fu-u5u">
+                                        <rect key="frame" x="12" y="11.5" width="37" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="Bbh-fU-eTs"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Ch9-Ws-XJV"/>
+                                        </constraints>
+                                        <state key="normal" image="close"/>
+                                        <connections>
+                                            <action selector="exitButtonPressed:" destination="SWA-vm-6AN" eventType="touchUpInside" id="SvR-ro-f5m"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="fuB-fu-u5u" firstAttribute="leading" secondItem="HL2-C1-QUq" secondAttribute="leading" constant="12" id="6hZ-JP-Kw1"/>
+                                    <constraint firstAttribute="height" constant="60" id="HT7-eG-Q2m"/>
+                                    <constraint firstItem="fuB-fu-u5u" firstAttribute="centerY" secondItem="HL2-C1-QUq" secondAttribute="centerY" id="lmM-ho-eBA"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="mPD-pr-qT7" firstAttribute="leading" secondItem="bb6-Ri-lGS" secondAttribute="leading" id="NEM-9H-LYz"/>
-                            <constraint firstItem="mPD-pr-qT7" firstAttribute="top" secondItem="bb6-Ri-lGS" secondAttribute="top" id="aHD-j5-GUu"/>
-                            <constraint firstItem="mPD-pr-qT7" firstAttribute="bottom" secondItem="bb6-Ri-lGS" secondAttribute="bottom" id="j9i-0j-3Q8"/>
-                            <constraint firstItem="mPD-pr-qT7" firstAttribute="trailing" secondItem="bb6-Ri-lGS" secondAttribute="trailing" id="zEw-ec-oha"/>
+                            <constraint firstItem="HL2-C1-QUq" firstAttribute="trailing" secondItem="bb6-Ri-lGS" secondAttribute="trailing" id="4zS-nj-dhA"/>
+                            <constraint firstItem="mPD-pr-qT7" firstAttribute="trailing" secondItem="bb6-Ri-lGS" secondAttribute="trailing" id="7md-sW-Exd"/>
+                            <constraint firstItem="mPD-pr-qT7" firstAttribute="leading" secondItem="bb6-Ri-lGS" secondAttribute="leading" id="CM5-jh-CKE"/>
+                            <constraint firstItem="mPD-pr-qT7" firstAttribute="top" secondItem="HL2-C1-QUq" secondAttribute="bottom" id="N1A-qS-cka"/>
+                            <constraint firstAttribute="bottom" secondItem="mPD-pr-qT7" secondAttribute="bottom" id="SZ6-j8-YKN"/>
+                            <constraint firstItem="HL2-C1-QUq" firstAttribute="top" secondItem="bb6-Ri-lGS" secondAttribute="top" id="UDC-wE-P0P"/>
+                            <constraint firstItem="HL2-C1-QUq" firstAttribute="leading" secondItem="bb6-Ri-lGS" secondAttribute="leading" id="XW2-3O-PuD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bb6-Ri-lGS"/>
                     </view>
@@ -257,6 +282,9 @@
             <point key="canvasLocation" x="2880.8000000000002" y="163.26836581709148"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="close" width="37.5" height="37.5"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tuL-LW-Uba"/>
     </inferredMetricsTieBreakers>
