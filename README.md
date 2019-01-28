@@ -25,9 +25,6 @@ Note, it may take a couple seconds for the gif to appear may take a couple secon
 
 <img src='FlixMovies2.gif' title='Video Walkthrough Part 2' width=250><br>
 
-### Notes
-Describe any challenges encountered while building the app.
-
 ## Flix Part 1
 
 ### User Stories
