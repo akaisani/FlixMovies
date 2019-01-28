@@ -21,8 +21,9 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 - [X] Improved UI of Poster Image to make it more apparent to the user they they need to tap on the poster image to play the trailer
 
 ### App Walkthough GIF
+Note, it may take a couple seconds for the gif to appear may take a couple seconds as the gif file is quite large.
 
-<img src='FlixMovies2.gif' title='Video Walkthrough' width=250><br>
+<img src='FlixMovies2.gif' title='Video Walkthrough Part 2' width=250><br>
 
 ### Notes
 Describe any challenges encountered while building the app.
@@ -43,5 +44,5 @@ Describe any challenges encountered while building the app.
 ### App Walkthough GIF
 Note, it may take a couple seconds for the gif to appear may take a couple seconds as the gif file is quite large.
 
-<img src='FlixMovies.gif' title='Video Walkthrough' width=250><br>
+<img src='FlixMovies.gif' title='Video Walkthrough Part 1' width=250><br>
 
